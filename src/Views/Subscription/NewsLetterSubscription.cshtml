@@ -1,0 +1,28 @@
+﻿@model NewsLetterSubscription
+@{
+    
+}
+
+<h2>Sign up to our newsletter: </h2>
+<p>
+    @using (Html.BeginForm("Add", "Subscription"))
+    {
+        <table class="center">
+            <tr>
+                <td>EmailID: </td>
+
+                <td>
+                    @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Email Address", type = "email" })
+                </td>
+                <td style="color:red">@Html.ValidationMessageFor(m => m.EmailAddress)</td>
+
+            </tr>
+            <tr style="height:10px"></tr>
+            <tr>
+                <td style="text-align:center;" colspan="2"><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+    }
+</p>
+
+<p style="align-self:center">@ViewBag.result</p>

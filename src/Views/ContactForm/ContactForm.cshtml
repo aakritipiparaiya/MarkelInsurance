@@ -1,0 +1,46 @@
+﻿@model ContactForm
+@{
+    
+}
+
+<h2>Contact us: </h2>
+<p>
+    @using (Html.BeginForm("Add", "ContactForm"))
+    {
+        <table class="center">
+            <tr>
+                <td>EmailID: </td>
+
+                <td>
+                    @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Email ID", type = "email" })</td>
+                    <td style="color:red">@Html.ValidationMessageFor(m => m.EmailAddress)</td>
+                
+            </tr>
+            <tr style="height:10px"></tr>
+            <tr>
+                <td>Subject: </td>
+
+                <td>
+                    @Html.TextAreaFor(m => m.Subject, 5, 100, new { maxlength = 50 })
+                </td>
+                <td style="color:red">@Html.ValidationMessageFor(m => m.Subject)</td>
+            </tr>
+            <tr style="height:10px"></tr>
+            <tr>
+                <td>Description: </td>
+
+                <td>
+                    @Html.TextAreaFor(m => m.Description, 4, 100, new { maxlength = 400 })
+                </td>
+                <td style="color:red">@Html.ValidationMessageFor(m => m.Description)</td>
+            </tr>
+            <tr style="height:10px"></tr>
+            <tr>
+                <td style="text-align:center;" colspan="2"><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+    }
+</p>
+
+
+<p style="align-self:center">@ViewBag.result</p>
