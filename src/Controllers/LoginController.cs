@@ -51,23 +51,23 @@ namespace Markel.com.Controllers
                     _logger.LogInformation("Search Login");
                     if (isSuccess)
                     {
-                        //if login is valid change the text from "Login" to "Signout {id}"
-                        //when user clicks on signout text will change back to Login for now
-                        // can add functionality later on to actually signing user out and remove all its session data
+                        // can add functionality later on to actually signing user in 
                         ViewBag.result = "Login Successful";
                         _logger.LogInformation("Valid login");
 
-                        return View(LoginViewName);
                     }
                     else
                     {
                         ViewBag.result = ErrorMsg;
                         _logger.LogInformation("Login Failed");
-                        return View(LoginViewName);
                     }
                 }
+                else
+                {
+                    ViewBag.result = "Invalid State";
+                }
 
-                ViewBag.result = "Invalid State";
+                ModelState.Clear();
                 return View(LoginViewName);
             }
             catch (Exception ex)

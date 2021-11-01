@@ -58,6 +58,7 @@ namespace Markel.com.Controllers
                     _logger.LogInformation("Contact us: invalid state");
                 }
 
+                ModelState.Clear();
                 return View(ContactUsViewName);
             }
             catch (Exception ex)

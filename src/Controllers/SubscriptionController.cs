@@ -60,7 +60,7 @@ namespace Markel.com.Controllers
                 }
 
 
-
+                ModelState.Clear();
                 return View(SubscribeViewName);
             }
             catch (Exception ex)
