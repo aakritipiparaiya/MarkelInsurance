@@ -52,6 +52,9 @@ namespace Markel.com.Controllers
                     // if email was already present return duplicate msg else add in database
                     ViewBag.result = isSuccess ? SuccessMsg : DuplicateMsg;
                         _logger.LogInformation("NewsletterSubscription: " + (isSuccess ? SuccessMsg : DuplicateMsg));
+
+
+                    ModelState.Clear();
                 }
                 else
                 {
@@ -59,8 +62,6 @@ namespace Markel.com.Controllers
                     _logger.LogInformation("NewsletterSubscription: " + ErrorMsg);
                 }
 
-
-                ModelState.Clear();
                 return View(SubscribeViewName);
             }
             catch (Exception ex)

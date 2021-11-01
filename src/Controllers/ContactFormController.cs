@@ -50,7 +50,7 @@ namespace Markel.com.Controllers
                     //Check if its being added or not
                     ViewBag.result = isSuccess ? SuccessMsg : ErrorMsg; 
                     _logger.LogInformation("Contact us: valid state" + (isSuccess ? "success" : "failed"));
-
+                    ModelState.Clear();
                 }
                 else
                 {
@@ -58,7 +58,7 @@ namespace Markel.com.Controllers
                     _logger.LogInformation("Contact us: invalid state");
                 }
 
-                ModelState.Clear();
+               
                 return View(ContactUsViewName);
             }
             catch (Exception ex)

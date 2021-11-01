@@ -61,13 +61,16 @@ namespace Markel.com.Controllers
                         ViewBag.result = ErrorMsg;
                         _logger.LogInformation("Login Failed");
                     }
+
+                    ModelState.Clear();
                 }
                 else
                 {
                     ViewBag.result = "Invalid State";
+                    _logger.LogInformation("Invalid State");
                 }
 
-                ModelState.Clear();
+               
                 return View(LoginViewName);
             }
             catch (Exception ex)
