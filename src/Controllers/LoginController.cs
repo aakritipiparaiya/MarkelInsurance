@@ -54,12 +54,10 @@ namespace Markel.com.Controllers
                         //if login is valid change the text from "Login" to "Signout {id}"
                         //when user clicks on signout text will change back to Login for now
                         // can add functionality later on to actually signing user out and remove all its session data
-                        ViewBag.Login = "Signout " + login.Id;
+                        ViewBag.result = "Login Successful";
                         _logger.LogInformation("Valid login");
 
-                        //after logging in - return back to main home page
-                        return View("Views/Home/Index.cshtml");
-
+                        return View(LoginViewName);
                     }
                     else
                     {
